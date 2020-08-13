@@ -1,6 +1,6 @@
 require('isomorphic-fetch');
 const dotenv = require('dotenv');
-const koa = require('koa');
+const Koa = require('koa');
 const next = require('next');
 const { default: createShopifyAuth } = require('@shopify/koa-shopify-auth');
 const { verifyRequest } = require('@shopify/koa-shopify-auth');
@@ -37,7 +37,7 @@ app.prepare().then(() => {
         ctx.statusCode = 200;
         return
     });
-    server.listed(port, () => {
+    server.listen(port, () => {
         console.log(`> Ready of https://localhost:${port}`);
     });
 });
